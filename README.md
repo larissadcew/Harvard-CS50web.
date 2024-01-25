@@ -7,7 +7,7 @@
 <h1 align="center">
  Web Programming with Python and JavaScript- 2024</h1>
 <p align="center">
-  <a href="https://cs50.harvard.edu/x/2023/](https://cs50.harvard.edu/web/2020/">Course Link</a> |
+  <a href="https://cs50.harvard.edu/web/2020/">Course Link</a> |
   <a href="#">Final Project</a> 
 </p>
 
