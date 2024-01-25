@@ -5,12 +5,10 @@
 </p>
 
 <h1 align="center">
-  Harvard CS50x — 2023
-</h1>
-
+ Web Programming with Python and JavaScript- 2024</h1>
 <p align="center">
-  <a href="https://cs50.harvard.edu/x/2023/">Course Link</a> |
-  <a href="https://github.com/me50/larissadcew/tree/6ff5ef095070ab715f6172b0d0e8a738382f068b">Final Project</a> 
+  <a href="https://cs50.harvard.edu/x/2023/](https://cs50.harvard.edu/web/2020/">Course Link</a> |
+  <a href="#">Final Project</a> 
 </p>
 
 
