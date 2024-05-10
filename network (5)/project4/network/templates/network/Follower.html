@@ -1,0 +1,41 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <!-- All posts -->
+            <h1>Following</h1>
+
+            {% for inf in posts_of_the_page %}
+            
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'perfil' inf.user.id %}">{{ inf.user.username }}</a></h5>
+                    <p class="card-text">{{ inf.content }}</p>
+                    <p class="card-text"><small class="text-muted">{{ inf.date }}</small></p>
+                    {% if request.user == inf.user %}
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#model_edit_post_{{ inf.id }}">Edit</button>
+                    {% endif %}
+                    <button class="heart-btn" data-post-id="{{ inf.id }}">&#x2665;</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination d-flex justify-content-center">
+        {% if posts_of_the_page.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ posts_of_the_page.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% if posts_of_the_page.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ posts_of_the_page.next_page_number }}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+{% endblock %}

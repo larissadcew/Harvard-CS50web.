@@ -1,0 +1,21 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="text-center mb-4">Edit</h1>
+        
+        <form action="{% url 'Edit' Post.id %}" method="post" class="mb-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <textarea class="form-control" name="content" rows="3">{{ Post.content }}</textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<script>
+    function getCookie(name){
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if(parts.length == 2) return parts.pop().split(';').shift();
+
+    }
+    
+    function submitHandler(id) {
+        const textareaValue = document.getElementById(`textarea_${id}`).value;
+        const content = document.getElementById(`content_${id}`);
+        const modal = document.getElementById(`modal_edit_post_${id}`);
+        fetch(`/Edit/${id}`, {
+            method: "POST",
+            headers: { "Content-type": "application/json", "X-CSRFToken": getCookie("csrftoken") },
+            body: JSON.stringify({
+                content: textareaValue
+            })
+        })
+        .then(response => response.json())
+        .then(result => {
+            content.innerHTML = result.data;
+        
+            // Removendo o modal e os backdrops
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            modal.setAttribute('style', 'display: none');
+
+
+            // erro aqui
+            const modalBackdrops = document.getElementsByClassName('modal-backdrop');
+
+            for (let i = 0; i < modalBackdrops.length; i++) {
+                document.body.removeChild(modalBackdrops[i]);
+            }
+
+        });
+    }
+
+    function likeHender(id, whoYouLiked){
+        const btn = document.getElementById(`${id}`);
+
+        btn.classList.remove('fa-thumbs-up')
+        btn.classList.remove('fa-thumbs-down')
+        if (whoYouLiked.indexOf(id) >= 0){
+            var liked = true;
+
+        }else{
+            var liked = false;
+        }
+        if(liked === true){
+            fetch(`/removeLike/${id}`)
+            .then(response => response.json)
+            .then(result => {
+                console.log("false")
+                btn.classList.add('fa-thumbs-up')
+                
+            })
+        }else{
+            fetch(`/addLike/${id}`)
+            .then(response => response.json)
+            .then(result => {
+                console.log("true")
+                btn.classList.add('fa-thumbs-down')
+                
+            })
+        }
+        liked = !liked
+    }
+            
+</script>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center mb-4">All Posts</h1>
+
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'newPost' %}" class="mb-4">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <textarea class="form-control" name="content" rows="3" placeholder="What's on your mind?"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Post</button>
+                </form>
+            {% endif %}
+
+            <!-- All posts -->
+            {% for inf in posts_of_the_page %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'perfil' inf.user.id %}">{{ inf.user.username }}</a></h5>
+                    <p class="card-text" id="content_{{ inf.id }}">{{ inf.content }}</p>
+                    <p class="card-text"><small class="text-muted">{{ inf.date }}</small></p>
+                    {% if request.user == inf.user %}
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#model_edit_post_{{ inf.id }}">Edit</button>
+                        <!-- Edit Modal -->
+                        <div class="modal fade" id="model_edit_post_{{ inf.id }}" tabindex="-1" role="dialog" aria-labelledby="model_edit_post_{{ inf.id }}_label" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Edit Post</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <textarea rows="5" id="textarea_{{ inf.id }}" class="form-control" name="content">{{ inf.content }}</textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" onclick="submitHandler('{{ inf.id }}')">Save changes</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+
+                        {% if inf.id in whoYouLiked %}
+                             <button class="btn btn-danger fa fa-thumbs-down col-1" id="{{ inf.id }}" onclick="likeHender({{ inf.id }}, {{ whoYouLiked }})" ></button>
+                        {% else %}
+                            <button class="btn btn-danger fa fa-thumbs-up col-1" id="{{ inf.id }}" onclick="likeHender({{ inf.id }}, {{ whoYouLiked }})"></button>
+                        {% endif %}
+
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination d-flex justify-content-center">
+        {% if posts_of_the_page.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ posts_of_the_page.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% if posts_of_the_page.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ posts_of_the_page.next_page_number }}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+{% endblock %}

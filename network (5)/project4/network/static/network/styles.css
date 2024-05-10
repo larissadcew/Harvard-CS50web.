@@ -1,0 +1,19 @@
+.heart-btn {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 24px;
+}
+.heart-btn {
+    background-color: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.heart-btn:hover {
+    transform: scale(1.1);
+}
