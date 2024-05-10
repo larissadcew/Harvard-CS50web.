@@ -1,0 +1,82 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <!--mensage-->
+    {% if mensage %}
+        {% if update %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+        {% endif %}
+    {% endif %}
+    
+
+
+
+
+    <!--watchilist-->
+
+
+    <h2>{{ listing.title }}</h2>
+
+        
+    {% if listing.url %}
+        <div class="form-group" style="text-align: center;">
+            <img src="{{ listing.url }}" style="display: inline-block; width: 25rem;">
+        </div>
+    {% else %}
+        <div class="form-group" style="text-align: center;">
+            <label>No image to this List</label>
+        </div>
+    {% endif %}
+        
+
+    <h3>${{ listing.price.bid }}</h3>
+     
+    <div class="form-group">
+        <form action="{% url 'newBid' listing.id  %}" method="post">
+            {%csrf_token%}
+            <input class="form-control" autofocus type="number" min="0" name="new_bid" placeholder="Bid">
+            <br>
+            <input class="btn btn-primary" type="submit" value="Add Bid">
+        </form>
+    </div>
+  
+
+    <h3>Detais</h3>
+    <ul>
+        <li>Listed by: {{ listing.author }}</li>
+        {% if listing.category %}
+            <li>Category :{{ listing.category }}</li>
+        {% else %}
+            <li>No category listed</li>
+        {% endif %}
+    </ul>
+
+    
+    {% if user.is_authenticated %}
+        <div class="form-group">
+            <form action="{% url 'SaveComment' listing.id %}" method="post">
+                <input class="form-control" type="text" name="NewComment" placeholder="Comment">
+                {% csrf_token %}
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    {% endif %}
+
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in comments%}
+            <li>{{comment.author }}</li>
+            <li>{{comment.comments }}</li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
