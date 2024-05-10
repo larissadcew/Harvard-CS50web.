@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Clone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="google.png" type="image/png">
+
+    <style>
+        /* Estilo personalizado para o input e o botão */
+        .custom-input {
+            border: 2px solid rgb(239, 238, 238); /* Cor da borda */
+            border-radius: 24px; /* Raio da borda */
+            padding: 10px 20px; /* Espaçamento interno */
+            font-size: 16px; /* Tamanho da fonte */
+            width: 557px; /* Largura do input */
+            margin-bottom: 20px; /* Espaçamento abaixo do input */
+        }
+        .search_button {
+            border-radius: 4px;
+            background-color: rgb(244, 243, 243);
+            border: none;
+            color: rgba(0, 0, 0, 0.869);
+            width: 150px;
+            height: 30px;
+            margin-right: 10px; /* Espaçamento à direita */
+        }
+        .header {
+            background-color: #fff; /* Cor de fundo do cabeçalho */
+            padding: 8px 16px; /* Espaçamento interno */
+            display: flex; /* Torna os elementos filhos flexíveis */
+            justify-content: flex-end; /* Alinha os elementos à direita */
+            align-items: center; /* Alinha os elementos verticalmente */
+            border-bottom: 1px solid #ddd; /* Linha divisória no rodapé */
+        }
+        .header a {
+            text-decoration: none; /* Remove o sublinhado dos links */
+            color: #70757a; /* Cor dos links */
+            font-size: 14px; /* Tamanho da fonte */
+            margin-left: 16px; /* Espaçamento entre os links */
+            transition: color 0.3s ease; /* Transição de cor suave */
+        }
+        .header a:hover {
+            color: #1a73e8; /* Cor dos links ao passar o mouse */
+        }
+    </style>
+    <div class="header">
+        <a href="index.html">Google</a>
+        <a href="serche_image.html">Google Image</a>
+        <a href="Advenced_search.html">Advanced Search</a>
+    </div>
+</head>
+<body>
+    <div class="container d-flex flex-column align-items-center mt-5">
+        <form action="https://google.com/search" class="text-center">
+            <div class="mb-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo">
+            </div>
+            <input type="text" name="q" class="custom-input" placeholder="Pesquisar no Google">
+            <input type="hidden" name="q" value="bananaa">
+            <input type="hidden" name="sca_esv" value="4a182c5311bbdf9b">
+            <input type="hidden" name="sxsrf" value="ACQVn0_xrC3EuJjPOPmK81n4wenbEqg98w:1711718033546">
+            <input type="hidden" name="source" value="hp">
+            <input type="hidden" name="ei" value="kb4GZpX1Hr7Z5OUP78G-MA">
+            <input type="hidden" name="iflsig" value="ANes7DEAAAAAZgbModIr22R_d1eidpJtkkrWoDuErHPb">
+            <input type="hidden" name="udm" value="">
+            <input type="hidden" name="ved" value="0ahUKEwjVgd_KxpmFAxW-LLkGHe-gDwYQ4dUDCBU">
+            <input type="hidden" name="uact" value="5">
+            <input type="hidden" name="oq" value="bananaa">
+            <input type="hidden" name="gs_lp" value="Egdnd3Mtd2l6IgdiYW5hbmFhMgoQIxiABBiKBRgnMgoQABiABBiKBRhDMg0QLhiABBiKBRhDGLEDMg4QABiABBiKBRixAxiDATINEC4YgAQYigUYQxixAzINEAAYgAQYigUYQxixAzIKEAAYgAQYigUYQzIKEC4YgAQYigUYQzIFEAAYgAQyCBAuGIAEGLEDSLEFUABYsQRwAHgAkAEAmAGeAaABugaqAQMwLja4AQPIAQD4AQGYAgagAvkGwgIEECMYJ8ICERAuGIAEGLEDGIMBGMcBGNEDwgILEAAYgAQYsQMYgwHCAgsQLhiDARixAxiABMICCBAuGIAEGNQCwgIQEC4YgAQYigUYQxjHARjRA8ICDhAuGIAEGLEDGMcBGNEDwgIIEAAYgAQYsQOYAwCSBwMwLjagB_5O">
+            <input type="hidden" name="sclient" value="gws-wiz">
+
+            <div class="d-flex justify-content-center"> <!-- Div para alinhar os botões -->
+                <button type="submit" class="search_button">Pesquisa Google</button>
+                <button type="submit" class="search_button">Estou com sorte</button>
+            </div>
+        </form>
+    </div>
+    <!-- Bootstrap JS (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

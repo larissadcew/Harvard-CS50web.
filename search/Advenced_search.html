@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Advanced Search</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="google.png" type="image/png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Define a fonte do corpo do texto */
+            background-color: #fff; /* Cor de fundo */
+            padding: 20px; /* Espaçamento interno */
+        }
+
+        .container {
+            background-color: #fff; /* Cor de fundo do container */
+            border-radius: 8px; /* Borda arredondada */
+            padding: 20px; /* Espaçamento interno */
+            max-width: 800px; /* Largura máxima do container */
+            margin: 200px 0 0 50px; /* Margem superior, inferior, direita e esquerda */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Espaçamento entre os campos do formulário */
+            display: flex; /* Torna os elementos filhos flexíveis */
+            align-items: center; /* Alinha os elementos verticalmente */
+        }
+
+        .form-label {
+            font-weight: bold; /* Texto em negrito */
+            margin-right: 10px; /* Espaçamento à direita */
+            flex: 0 0 150px; /* Largura fixa para o rótulo */
+        }
+
+        .form-control {
+            flex: 1; /* Ocupa todo o espaço disponível */
+            padding: 10px; /* Espaçamento interno */
+            border-radius: 4px; /* Borda arredondada */
+            border: 1px solid #ccc; /* Borda sólida */
+        }
+
+        .btn {
+            background-color: #1a73e8; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto do botão */
+            border: none; /* Sem borda */
+            border-radius: 4px; /* Borda arredondada */
+            padding: 10px 20px; /* Espaçamento interno */
+            cursor: pointer; /* Cursor ao passar */
+            transition: background-color 0.3s ease; /* Transição suave de cor */
+        }
+
+        .btn:hover {
+            background-color: #0f5ae1; /* Cor de fundo do botão ao passar */
+        }
+        .header {
+            background-color: #fff; /* Cor de fundo do cabeçalho */
+            padding: 8px 16px; /* Espaçamento interno */
+            display: flex; /* Torna os elementos filhos flexíveis */
+            justify-content: flex-end; /* Alinha os elementos à direita */
+            align-items: center; /* Alinha os elementos verticalmente */
+            border-bottom: 1px solid #ddd; /* Linha divisória no rodapé */
+        }
+        .header a {
+            text-decoration: none; /* Remove o sublinhado dos links */
+            color: #70757a; /* Cor dos links */
+            font-size: 14px; /* Tamanho da fonte */
+            margin-left: 16px; /* Espaçamento entre os links */
+            transition: color 0.3s ease; /* Transição de cor suave */
+        }
+        .header a:hover {
+            color: #1a73e8; /* Cor dos links ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html">Google</a>
+        <a href="serche_image.html">Google Image</a>
+        <a href="Advenced_search.html">Advanced Search</a>
+    </div>
+    <div class="container">
+        <h1>Google Advanced Search</h1>
+        <form action="https://www.google.com/search" method="GET">
+            <div class="form-group">
+                <label class="form-label" for="all-words">Todas estas palavras:</label>
+                <input type="text" id="all-words" name="as_q" class="form-control">
+                <input type="hidden" name="as_q" value="d">
+                    <input type="hidden" name="as_epq" value="">
+                    <input type="hidden" name="as_oq" value="">
+                    <input type="hidden" name="as_eq" value="">
+                    <input type="hidden" name="as_nlo" value="">
+                    <input type="hidden" name="as_nhi" value="">
+                    <input type="hidden" name="lr" value="">
+                    <input type="hidden" name="cr" value="">
+                    <input type="hidden" name="as_qdr" value="all">
+                    <input type="hidden" name="as_sitesearch" value="">
+                    <input type="hidden" name="as_occt" value="any">
+                    <input type="hidden" name="as_filetype" value="">
+                    <input type="hidden" name="tbs" value="">
+
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="this-exact-word">Esta palavra exata:</label>
+                <input type="text" id="this-exact-word" name="as_epq" class="form-control">
+                <input type="hidden" name="as_q" value="">
+                <input type="hidden" name="as_epq" value="d">
+                <input type="hidden" name="as_oq" value="">
+                <input type="hidden" name="as_eq" value="">
+                <input type="hidden" name="as_nlo" value="">
+                <input type="hidden" name="as_nhi" value="">
+                <input type="hidden" name="lr" value="">
+                <input type="hidden" name="cr" value="">
+                <input type="hidden" name="as_qdr" value="all">
+                <input type="hidden" name="as_sitesearch" value="">
+                <input type="hidden" name="as_occt" value="any">
+                <input type="hidden" name="as_filetype" value="">
+                <input type="hidden" name="tbs" value="">
+
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="any-words">Algumas destas palavras:</label>
+                <input type="text" id="any-words" name="as_oq" class="form-control">
+                <input type="hidden" name="as_q" value="">
+                <input type="hidden" name="as_epq" value="">
+                <input type="hidden" name="as_oq" value="d">
+                <input type="hidden" name="as_eq" value="">
+                <input type="hidden" name="as_nlo" value="">
+                <input type="hidden" name="as_nhi" value="">
+                <input type="hidden" name="lr" value="">
+                <input type="hidden" name="cr" value="">
+                <input type="hidden" name="as_qdr" value="all">
+                <input type="hidden" name="as_sitesearch" value="">
+                <input type="hidden" name="as_occt" value="any">
+                <input type="hidden" name="as_filetype" value="">
+                <input type="hidden" name="tbs" value="">
+
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="exclude-words">Excluir palavras:</label>
+                <input type="text" id="exclude-words" name="as_eq" class="form-control">
+                <input type="hidden" name="as_q" value="">
+                <input type="hidden" name="as_epq" value="">
+                <input type="hidden" name="as_oq" value="">
+                    <input type="hidden" name="as_eq" value="d">
+                    <input type="hidden" name="as_nlo" value="">
+                    <input type="hidden" name="as_nhi" value="">
+                    <input type="hidden" name="lr" value="">
+                    <input type="hidden" name="cr" value="">
+                    <input type="hidden" name="as_qdr" value="all">
+                    <input type="hidden" name="as_sitesearch" value="">
+                    <input type="hidden" name="as_occt" value="any">
+                    <input type="hidden" name="as_filetype" value="">
+                    <input type="hidden" name="tbs" value="">
+
+            </div>
+            <button type="submit" class="btn">Pesquisa avançada</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
