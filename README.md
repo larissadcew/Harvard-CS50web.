@@ -6,7 +6,7 @@
 
 <h2>🏫 Harvard CS50 Web</h2>
 <p align="center">
-    <img src="https://cs50.harvard.edu/x/2023/static/images/cs50-logo.svg" alt="Harvard CS50web" width="200" />
+     <img src="https://th.bing.com/th/id/R.9d5c15c00e682d4f05196ef13f529951?rik=BK1C5I60ZJoPRQ&riu=http%3a%2f%2fassets.stickpng.com%2fimages%2f5842f68fa6515b1e0ad75b22.png&ehk=pyGF0C8aD30MBkBK5DKjdI5QRAIdjUfjdafCsIJ7Swc%3d&risl=&pid=ImgRaw&r=0" width="200" />
 </p>
 
 <h2>🚀 How to Run?</h2>
